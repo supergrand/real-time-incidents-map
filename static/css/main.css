@@ -1,0 +1,133 @@
+html, body { height: 100%; }
+body {
+  background: #D6D4CD;
+  font: 9pt/1.2em sans-serif;
+  margin: 0;
+  color: #777;
+}
+a {
+  color: #00A9FF;
+}
+ul, li {
+  margin: 0;
+  padding: 0;
+}
+#map {
+  display: block;
+  height: 100%;
+  background: none;
+  border: 5px solid transparent;
+  box-sizing: border-box;
+}
+
+#page-container {
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+}
+.incident-map {
+  flex: 1 1 100%;
+}
+.incident-messages {
+  flex: 0 0 350px;
+  background: #EDECE4;
+  overflow: auto;
+}
+
+.incident-messages .testbutton {
+  padding: 5px;
+  margin-top: 5px;
+  text-align: center;
+}
+.testbutton a {
+  display: inline-block;
+  padding: 5px 10px 7px 10px;
+  background: #0BABF5;
+  box-shadow: inset 0 -3px 0 0 rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Messages ================================================================ */
+.msg-stack {
+  padding: 0 5px;
+}
+.msg {
+  margin: 5px 0;
+  padding: 10px;
+  background: #FAFAF0;
+  cursor: pointer;
+  opacity: .8;
+}
+.msg:hover {
+  opacity: 1 !important;
+}
+.msg.success,
+.msg.info,
+.msg.error {
+  font-size: 0.9em;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.msg.success h1 .fa {
+  color: #A6E25B;
+}
+.msg.info h1 .fa {
+  color: #5B99E2;
+}
+.msg.error h1 .fa {
+  color: #E26D5B;
+}
+.msg.incident h1 .fa {
+  color: #E2DB5B;
+}
+.msg h1 {
+  font-size: inherit;
+  font-weight: normal;
+  line-height: 1.5em;
+  margin: 0;
+}
+.msg .fa {
+  margin-right: .3em;
+}
+.msg .info {
+  display: flex;
+  margin-top: 10px;
+  font-size: .9em;
+}
+.msg .info .cell {
+  margin-right: 10px;
+  white-space: nowrap;
+}
+.msg .info .time {}
+.msg .info .coords span {
+  letter-spacing: -1px;
+}
+.msg .info .coords span + span {
+  margin-left: .5em;
+}
+.msg.new {
+  animation: new 0.2s ease-out forwards;
+}
+.msg.incident.new {
+  animation: highlight 10s linear forwards, new 0.2s ease-out forwards;
+}
+@keyframes new {
+  0% {
+    transform: translateY(30%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: .8;
+  }
+}
+@keyframes highlight {
+  0% {
+    background: #FFE600;
+  }
+  100% {
+    background: #FCFFAC;
+  }
+}
